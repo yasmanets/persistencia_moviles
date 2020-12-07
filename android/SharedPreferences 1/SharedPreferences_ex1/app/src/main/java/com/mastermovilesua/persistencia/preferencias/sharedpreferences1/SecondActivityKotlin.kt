@@ -17,7 +17,7 @@ class SecondActivityKotlin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second_kotlin)
+        setContentView(R.layout.activity_second)
         val preferences: SharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
         this.title = "SharedPreferences_ex1 Detail (Kotlin)"
 

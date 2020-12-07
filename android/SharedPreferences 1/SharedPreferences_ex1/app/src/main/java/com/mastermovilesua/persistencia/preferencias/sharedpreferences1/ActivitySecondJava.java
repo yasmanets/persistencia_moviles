@@ -21,7 +21,7 @@ public class ActivitySecondJava extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_kotlin);
+        setContentView(R.layout.activity_second);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         setTitle("SP_1 Detail (Java)");
 

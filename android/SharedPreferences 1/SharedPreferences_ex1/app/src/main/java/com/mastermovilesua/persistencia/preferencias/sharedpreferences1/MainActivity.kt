@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         this.seekBar = findViewById(R.id.seekBar)
         this.applyChanges = findViewById(R.id.applyChanges)
         this.resultsText = findViewById(R.id.results)
-        this.javaButton = findViewById(R.id.goJava)
+        this.javaButton = findViewById(R.id.changeVersion)
+        this.javaButton?.setBackgroundResource(R.drawable.java);
     }
 
     private fun setPreferencesData(preferences: SharedPreferences) {

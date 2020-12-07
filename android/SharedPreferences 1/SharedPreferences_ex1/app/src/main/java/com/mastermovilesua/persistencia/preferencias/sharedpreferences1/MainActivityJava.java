@@ -3,7 +3,6 @@ package com.mastermovilesua.persistencia.preferencias.sharedpreferences1;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,7 +32,7 @@ public class MainActivityJava extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_java);
+        setContentView(R.layout.activity_main);
         this.preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
         setTitle("SharedPreferences_ex1 (Java)");
 
@@ -65,7 +64,8 @@ public class MainActivityJava extends AppCompatActivity implements View.OnClickL
         this.seekBar = findViewById(R.id.seekBar);
         this.applyChanges = findViewById(R.id.applyChanges);
         this.resultsText = findViewById(R.id.results);
-        this.goKotlin = findViewById(R.id.goKotlin);
+        this.goKotlin = findViewById(R.id.changeVersion);
+        this.goKotlin.setBackgroundResource(R.drawable.kotlin);
     }
 
     private void setPreferencesData() {
@@ -85,7 +85,7 @@ public class MainActivityJava extends AppCompatActivity implements View.OnClickL
                 Intent intent = new Intent(this, ActivitySecondJava.class);
                 startActivityForResult(intent, ACTIVITY_RESULT_CODE);
                 break;
-            case R.id.goKotlin:
+            case R.id.changeVersion:
                 Intent kotlinIntent = new Intent(this, MainActivity.class);
                 startActivity(kotlinIntent);
         }
