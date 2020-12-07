@@ -21,12 +21,14 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
     private var seekBar: SeekBar? = null
     private var applyChanges: Button? = null
     private var resultsText: TextView? = null
+    private var javaButton: Button? = null
     private lateinit var preferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
+        this.title = "SharedPreferences_ex1 (Kotlin)"
 
 
         this.setUIContent()
@@ -36,6 +38,10 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
             val intent = Intent(this, SecondActivityKotlin::class.java)
             startActivityForResult(intent, ACTIVITY_RESULT_CODE)
         }
+        this.javaButton?.setOnClickListener {
+            val intent = Intent(this, MainActivityJava::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setUIContent() {
@@ -44,14 +50,15 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         this.seekBar = findViewById(R.id.seekBar)
         this.applyChanges = findViewById(R.id.applyChanges)
         this.resultsText = findViewById(R.id.results)
+        this.javaButton = findViewById(R.id.goJava)
     }
 
     private fun setPreferencesData(preferences: SharedPreferences) {
-        val encriptedText = Base64Cipher.encryptData(this.editText?.text.toString())
-        val encriptedSize = Base64Cipher.encryptData(this.seekBar?.progress!!.toString())
+        val encryptedText = Base64Cipher.encryptData(this.editText?.text.toString())
+        val encryptedSize = Base64Cipher.encryptData(this.seekBar?.progress!!.toString())
         val editor = preferences.edit()
-        editor.putString("text", encriptedText)
-        editor.putString("size", encriptedSize)
+        editor.putString("text", encryptedText)
+        editor.putString("size", encryptedSize)
         editor.apply()
     }
 

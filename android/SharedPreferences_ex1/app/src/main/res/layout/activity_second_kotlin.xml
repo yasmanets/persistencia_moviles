@@ -9,7 +9,7 @@
     tools:context=".SecondActivityKotlin">
 
     <TextView
-        android:id="@+id/kotlinTextView"
+        android:id="@+id/secondViewTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Hola Mundo!"
@@ -18,7 +18,7 @@
         android:layout_marginTop="30sp" />
 
     <Button
-        android:id="@+id/kotlinBack"
+        android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Volver"

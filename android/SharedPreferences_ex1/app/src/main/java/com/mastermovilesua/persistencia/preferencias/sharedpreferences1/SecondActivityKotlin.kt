@@ -19,6 +19,7 @@ class SecondActivityKotlin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second_kotlin)
         val preferences: SharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
+        this.title = "SharedPreferences_ex1 Detail (Kotlin)"
 
         this.setUIContent()
         this.getPreferencesData(preferences)
@@ -30,8 +31,8 @@ class SecondActivityKotlin : AppCompatActivity() {
     }
 
     private fun setUIContent() {
-        this.textView = findViewById(R.id.kotlinTextView)
-        this.backButton = findViewById(R.id.kotlinBack)
+        this.textView = findViewById(R.id.secondViewTextView)
+        this.backButton = findViewById(R.id.buttonBack)
     }
 
     private fun getPreferencesData(preferences: SharedPreferences) {
