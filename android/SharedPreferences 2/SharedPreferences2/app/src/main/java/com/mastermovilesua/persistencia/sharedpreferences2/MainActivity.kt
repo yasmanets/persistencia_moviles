@@ -2,7 +2,6 @@ package com.mastermovilesua.persistencia.sharedpreferences2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -10,10 +9,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.mastermovilesua.persistencia.sharedpreferences2.Fragments.MainFragment
+import com.mastermovilesua.persistencia.sharedpreferences2.Fragments.SettingsFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var mainFragment: MainFragment
+    lateinit var settingsFragment: SettingsFragment
     private var drawerLayout: DrawerLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,11 +54,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.home -> {
                 mainFragment = MainFragment()
                 supportFragmentManager.beginTransaction()
-                        .add(R.id.frame_layout, mainFragment)
-                        .commit()
+                    .replace(R.id.frame_layout, mainFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+                supportActionBar?.title = "Inicio"
             }
             R.id.settings -> {
-                Log.d("Main", "settings")
+                settingsFragment = SettingsFragment()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frame_layout, settingsFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+                supportActionBar?.title = "Ajustes"
             }
         }
         drawerLayout?.closeDrawer(GravityCompat.START, true)
