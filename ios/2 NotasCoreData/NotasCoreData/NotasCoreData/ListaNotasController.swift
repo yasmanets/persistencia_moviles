@@ -45,6 +45,7 @@ class ListaNotasController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MiCelda", for: indexPath)
         cell.textLabel?.numberOfLines = 3
         cell.textLabel?.text = self.listaNotas[indexPath.row].texto
+        cell.detailTextLabel?.text = self.listaNotas[indexPath.row].libreta?.nombre
         return cell
     }
 
