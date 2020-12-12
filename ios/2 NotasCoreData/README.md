@@ -1,0 +1,7 @@
+# Notas CoreData
+Capturas de la práctica `NotasCoreData`
+
+![Captura 1](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata1.png)
+![Captura 2](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata2.png)
+![Captura 3](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata3.png)
+
