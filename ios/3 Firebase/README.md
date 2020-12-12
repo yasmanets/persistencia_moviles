@@ -1,8 +1,5 @@
-# Notas CoreData
-Capturas de la práctica `NotasCoreData`
+# Chat con Firebase
+Capturas de la práctica `ChatFirebase`
 
-![Captura 1](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata1.png)
-![Captura 2](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata2.png)
-![Captura 3](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata3.png)
-![Captura 4](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata4.png)
-![Captura 5](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/2%20NotasCoreData/screenshots/coredata5.png)
+![Captura 1](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/3%20Firebase/screenshots/firebase1.png)
+![Captura 2](https://github.com/yasmanets/persistencia_moviles/blob/main/ios/3%20Firebase/screenshots/firebase2.png)
