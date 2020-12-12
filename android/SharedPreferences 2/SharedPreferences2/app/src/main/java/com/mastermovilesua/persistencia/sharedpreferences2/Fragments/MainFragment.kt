@@ -82,7 +82,7 @@ class MainFragment : Fragment() {
         else {
             animatedText.setTypeface(animatedText.typeface,  Typeface.NORMAL)
         }
-        val alpha: Float = preferences.getInt("alpha", 1).toFloat()
+        val alpha: Float = preferences.getFloat("alphaValue", 1F)
         val rotation: Float = preferences.getInt("rotation", 45).toFloat()
         animatedText.alpha = alpha
         animatedText.animate().rotation(rotation).duration = 3000
