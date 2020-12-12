@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ public class MainActivityJava extends AppCompatActivity implements View.OnClickL
     private Button applyChanges;
     private TextView resultsText;
     private Button goKotlin;
+    private Button closeButton;
     private SharedPreferences preferences;
     private static final int ACTIVITY_RESULT_CODE = 1;
 
@@ -55,7 +57,7 @@ public class MainActivityJava extends AppCompatActivity implements View.OnClickL
         });
         this.applyChanges.setOnClickListener(this);
         this.goKotlin.setOnClickListener(this);
-
+        this.closeButton.setOnClickListener(this);
     }
 
     private void setUIContent() {
@@ -66,6 +68,10 @@ public class MainActivityJava extends AppCompatActivity implements View.OnClickL
         this.resultsText = findViewById(R.id.results);
         this.goKotlin = findViewById(R.id.changeVersion);
         this.goKotlin.setBackgroundResource(R.drawable.kotlin);
+        this.closeButton = findViewById(R.id.close);
+
+        String text = preferences.getString("text", "Hola Mundo!");
+        this.editText.setText(Base64Cipher.decryptData(text));
     }
 
     private void setPreferencesData() {
@@ -88,6 +94,8 @@ public class MainActivityJava extends AppCompatActivity implements View.OnClickL
             case R.id.changeVersion:
                 Intent kotlinIntent = new Intent(this, MainActivity.class);
                 startActivity(kotlinIntent);
+            case R.id.close:
+                this.finishAffinity();
         }
     }
 

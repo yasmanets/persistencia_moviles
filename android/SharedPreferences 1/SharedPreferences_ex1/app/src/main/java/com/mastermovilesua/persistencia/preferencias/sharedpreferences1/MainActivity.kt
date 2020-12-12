@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
     private var applyChanges: Button? = null
     private var resultsText: TextView? = null
     private var javaButton: Button? = null
+    private var closeButton: Button? = null
     private lateinit var preferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,10 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
             val intent = Intent(this, MainActivityJava::class.java)
             startActivity(intent)
         }
+
+        this.closeButton?.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setUIContent() {
@@ -52,6 +57,7 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         this.resultsText = findViewById(R.id.results)
         this.javaButton = findViewById(R.id.changeVersion)
         this.javaButton?.setBackgroundResource(R.drawable.java);
+        this.closeButton = findViewById(R.id.close)
     }
 
     private fun setPreferencesData(preferences: SharedPreferences) {
