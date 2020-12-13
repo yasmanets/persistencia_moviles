@@ -9,12 +9,21 @@
 import UIKit
 import CoreData
 
-class ListaNotasController: UITableViewController {
+class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     
     var listaNotas: [Nota]!
+    var fullNotes: [Nota]!
+    let searchController = UISearchController(searchResultsController: nil)
+    let throttlet = Throttler(minimumDelay: 0.5)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.listaNotas = []
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar texto"
+        searchController.searchBar.sizeToFit()
+        self.tableView.tableHeaderView = searchController.searchBar
     }
 
     // MARK: - Table view data source
@@ -26,6 +35,7 @@ class ListaNotasController: UITableViewController {
         let request: NSFetchRequest<Nota> = NSFetchRequest(entityName: "Nota")
         if let notas = try? myContext.fetch(request) {
             self.listaNotas = notas
+            self.fullNotes = notas
             self.tableView.reloadData()
         }
         
@@ -43,10 +53,32 @@ class ListaNotasController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MiCelda", for: indexPath)
-        cell.textLabel?.numberOfLines = 3
         cell.textLabel?.text = self.listaNotas[indexPath.row].texto
         cell.detailTextLabel?.text = self.listaNotas[indexPath.row].libreta?.nombre
         return cell
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        throttlet.throttle {
+            let texto = searchController.searchBar.text!
+            if texto.isEmpty {
+                self.listaNotas = self.fullNotes
+                self.tableView.reloadData()
+                return
+            }
+            guard let coreDelegate = UIApplication.shared.delegate as? AppDelegate else{
+                return
+            }
+            let myContext = coreDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<Nota>(entityName: "Nota")
+            let predicate = NSPredicate(format: "texto CONTAINS[c] '\(texto)'")
+            let sortDate = NSSortDescriptor(key: "fecha", ascending: false)
+            request.predicate = predicate
+            request.sortDescriptors = [sortDate]
+            let filteredNotes = try! myContext.fetch(request)
+            self.listaNotas = filteredNotes
+            self.tableView.reloadData()
+        }
     }
 
     /*
