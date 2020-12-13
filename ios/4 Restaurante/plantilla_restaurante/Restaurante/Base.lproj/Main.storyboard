@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q12-EV-sGt">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q12-EV-sGt">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,11 +24,11 @@
                                         <rect key="frame" x="0.0" y="28" width="410" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bqm-o7-urj" id="hWm-rX-gNx">
-                                            <rect key="frame" x="0.0" y="0.0" width="410" height="116.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="410" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZ6-5N-ogO">
-                                                    <rect key="frame" x="345" y="7" width="45" height="102.5"/>
+                                                    <rect key="frame" x="345" y="7" width="45" height="103"/>
                                                     <state key="normal" title="Añadir"/>
                                                     <connections>
                                                         <action selector="botonAñadirPulsado:" destination="Bqm-o7-urj" eventType="touchUpInside" id="jWs-U9-lNo"/>
@@ -43,7 +41,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVP-iX-jRU">
-                                                    <rect key="frame" x="20" y="29" width="241" height="82.5"/>
+                                                    <rect key="frame" x="20" y="29" width="241" height="83"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -106,21 +104,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="urz-8q-fRS">
-                                <rect key="frame" x="33" y="52" width="348" height="701"/>
+                                <rect key="frame" x="33" y="96" width="348" height="657"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sdc-83-dgG">
                                         <rect key="frame" x="8" y="0.0" width="332" height="479.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="celdaLinea" id="o7I-kP-uyL" customClass="LineaPedidoTableViewCell" customModule="Restaurante" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="332" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="332" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o7I-kP-uyL" id="sPg-Tm-8q6">
                                                     <rect key="frame" x="0.0" y="0.0" width="332" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bzv-vC-cE2">
-                                                            <rect key="frame" x="230" y="7.5" width="94" height="29"/>
+                                                            <rect key="frame" x="230" y="6" width="94" height="32"/>
                                                             <connections>
                                                                 <action selector="stepperPulsado:" destination="o7I-kP-uyL" eventType="valueChanged" id="hO4-kq-k5J"/>
                                                             </connections>
@@ -173,29 +171,27 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tu dirección..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qav-H8-hHu">
-                                        <rect key="frame" x="8" y="516" width="332" height="30"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="8" y="516" width="332" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tu teléfono..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fwb-vs-8qC">
-                                        <rect key="frame" x="8" y="554" width="332" height="30"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="8" y="558" width="332" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g61-1V-TYe">
-                                        <rect key="frame" x="61" y="592" width="226" height="109"/>
+                                        <rect key="frame" x="61" y="600" width="226" height="57"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shx-T3-Ypn">
-                                                <rect key="frame" x="0.0" y="39.5" width="106" height="30"/>
+                                                <rect key="frame" x="0.0" y="13.5" width="106" height="30"/>
                                                 <state key="normal" title="Realizar pedido"/>
                                                 <connections>
                                                     <action selector="realizarPedidoPulsado:" destination="AmO-kd-X7l" eventType="touchUpInside" id="Rjq-gw-qnb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAz-pw-rIz">
-                                                <rect key="frame" x="114" y="39.5" width="112" height="30"/>
+                                                <rect key="frame" x="114" y="13.5" width="112" height="30"/>
                                                 <state key="normal" title="Cancelar pedido">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -295,12 +291,12 @@
             <point key="canvasLocation" x="1200" y="442.63392857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yE7-ov-X3n"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="pedido" width="37.5" height="37.5"/>
         <image name="plato" width="50" height="50"/>
         <image name="usuario" width="33.333332061767578" height="33.333332061767578"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="9f6-pW-VA9"/>
-    </inferredMetricsTieBreakers>
 </document>
