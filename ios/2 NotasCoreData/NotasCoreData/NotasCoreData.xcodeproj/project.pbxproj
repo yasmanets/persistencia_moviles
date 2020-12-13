@@ -17,6 +17,8 @@
 		43A9B4D42584F1D000205FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9B4D22584F1D000205FD8 /* LaunchScreen.storyboard */; };
 		43DE3A4B2585290000CBA56E /* GestorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE3A4A2585290000CBA56E /* GestorPicker.swift */; };
 		43DE3A4D25863F9700CBA56E /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE3A4C25863F9700CBA56E /* Throttler.swift */; };
+		43DE3A4F2586447300CBA56E /* ListaNotasCDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE3A4E2586447300CBA56E /* ListaNotasCDController.swift */; };
+		43DE3A5125866E6800CBA56E /* NotaCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE3A5025866E6800CBA56E /* NotaCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		43A9B4D52584F1D000205FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43DE3A4A2585290000CBA56E /* GestorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestorPicker.swift; sourceTree = "<group>"; };
 		43DE3A4C25863F9700CBA56E /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
+		43DE3A4E2586447300CBA56E /* ListaNotasCDController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaNotasCDController.swift; sourceTree = "<group>"; };
+		43DE3A5025866E6800CBA56E /* NotaCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				43A9B4D52584F1D000205FD8 /* Info.plist */,
 				43A9B4CD2584F1CF00205FD8 /* NotasCoreData.xcdatamodeld */,
 				43DE3A4C25863F9700CBA56E /* Throttler.swift */,
+				43DE3A4E2586447300CBA56E /* ListaNotasCDController.swift */,
+				43DE3A5025866E6800CBA56E /* NotaCustom.swift */,
 			);
 			path = NotasCoreData;
 			sourceTree = "<group>";
@@ -152,8 +158,10 @@
 			files = (
 				43A9B4C92584F1CF00205FD8 /* ViewController.swift in Sources */,
 				43A9B4C52584F1CF00205FD8 /* AppDelegate.swift in Sources */,
+				43DE3A5125866E6800CBA56E /* NotaCustom.swift in Sources */,
 				43DE3A4D25863F9700CBA56E /* Throttler.swift in Sources */,
 				432BE6B72584FB4300556E15 /* ListaNotasController.swift in Sources */,
+				43DE3A4F2586447300CBA56E /* ListaNotasCDController.swift in Sources */,
 				43A9B4CF2584F1CF00205FD8 /* NotasCoreData.xcdatamodeld in Sources */,
 				43A9B4C72584F1CF00205FD8 /* SceneDelegate.swift in Sources */,
 				43DE3A4B2585290000CBA56E /* GestorPicker.swift in Sources */,
