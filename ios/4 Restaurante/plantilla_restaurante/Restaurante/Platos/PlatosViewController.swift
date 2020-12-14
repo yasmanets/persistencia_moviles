@@ -71,8 +71,7 @@ class PlatosViewController: UIViewController, UITableViewDataSource, PlatoTableV
     //Se ha pulsado el botón "Añadir"
     func platoAñadido(indexPath: IndexPath) {
         //TODO: obtener el Plato en la posición elegida
-        //let platoElegido : Plato! = nil
-        
+        let platoElegido = self.frc.object(at: indexPath)
         
         //Le pasamos el plato elegido al controller de la pantalla de pedido
         //Y saltamos a esa pantalla
@@ -80,7 +79,7 @@ class PlatosViewController: UIViewController, UITableViewDataSource, PlatoTableV
         let vc = storyboard.instantiateViewController(withIdentifier: "Tu Pedido") as! PedidoActualViewController
         
         //TODO: DESCOMENTAR ESTA LINEA!!!!!!!!!
-        //vc.platoElegido = platoElegido
+        vc.platoElegido = platoElegido
         
         
         navigationController?.pushViewController(vc, animated: true)

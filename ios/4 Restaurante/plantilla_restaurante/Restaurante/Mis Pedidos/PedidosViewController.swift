@@ -1,5 +1,6 @@
 
 import UIKit
+import CoreData
 
 class PedidosViewController: UIViewController {
 
@@ -7,6 +8,18 @@ class PedidosViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let myContext = delegate.persistentContainer.viewContext
+        let request: NSFetchRequest<Pedido> = NSFetchRequest(entityName: "Pedido")
+        if let pedidos = try? myContext.fetch(request) {
+            for pedido in pedidos {
+                print(pedido)
+            }
+        }
+        super.viewWillAppear(true)
     }
     
 

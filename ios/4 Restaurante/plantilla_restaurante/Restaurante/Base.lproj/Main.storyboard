@@ -227,6 +227,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tu pedido" image="pedido" id="S7G-Vt-zRv"/>
                     <connections>
+                        <outlet property="address" destination="Qav-H8-hHu" id="WTX-6d-uQc"/>
+                        <outlet property="phone" destination="Fwb-vs-8qC" id="NcK-kg-Pmd"/>
                         <outlet property="tabla" destination="Sdc-83-dgG" id="dCS-PI-C1e"/>
                         <outlet property="totalLabel" destination="JuG-h6-qI9" id="125-HQ-DWL"/>
                     </connections>
