@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ExternalActivity extends AppCompatActivity {
 
     private TextView storageInfo;
+    private Button goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +20,16 @@ public class ExternalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_external);
 
         storageInfo = findViewById(R.id.externalStateTextView);
+        goBack = findViewById(R.id.goMain);
         storageInfo.setText("No se puede acceder a la información de almacenamiento externo.");
         if (isExternalStorageReadable()) {
             this.setTextViewContent();
         }
+        goBack.setOnClickListener(view -> {
+            finish();
+        });
+
+
     }
 
     private boolean isExternalStorageReadable() {
