@@ -2,6 +2,7 @@ package com.mastermoviles.persistencia.files;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button internalState;
+    private Button externalState;
     private EditText editText;
     private Button addToFile;
     private Button showFile;
@@ -26,14 +27,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setUIContent() {
-        internalState = findViewById(R.id.internalState);
+        externalState = findViewById(R.id.externalState);
         editText = findViewById(R.id.editText);
         addToFile = findViewById(R.id.addToFile);
         showFile = findViewById(R.id.showFile);
         moveExternal = findViewById(R.id.moveExternal);
         moveInternal = findViewById(R.id.moveInternal);
 
-        internalState.setOnClickListener(this);
+        externalState.setOnClickListener(this);
         addToFile.setOnClickListener(this);
         showFile.setOnClickListener(this);
         moveExternal.setOnClickListener(this);
@@ -43,8 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.internalState:
-                Log.d("Main", "internalState");
+            case R.id.externalState:
+                Intent intent = new Intent(this, ExternalActivity.class);
+                startActivity(intent);
                 break;
             case R.id.addToFile:
                 Log.d("Main", "addToFile");
