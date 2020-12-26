@@ -1,5 +1,6 @@
 package com.mastermoviles.persistencia.files;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -38,6 +39,11 @@ public class FileActivity extends AppCompatActivity {
         }
         catch (Exception ex) {
             Log.e("Files", "Error: " + ex.getMessage());
+            fileContent.setTextColor(Color.RED);
+            fileContent.setText("Se ha producido un error al leer el fichero.");
+            if (ex.getMessage().contains("ENOENT")) {
+                fileContent.setText("No se ha escrito nada en el fichero que se quiere leer.");
+            }
         }
     }
 }
