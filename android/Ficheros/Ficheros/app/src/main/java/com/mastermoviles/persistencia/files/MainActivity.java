@@ -2,12 +2,17 @@ package com.mastermoviles.persistencia.files;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -49,10 +54,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.addToFile:
-                Log.d("Main", "addToFile");
+                this.saveDataToFile();
                 break;
             case R.id.showFile:
-                Log.d("Main", "showFile");
+                Intent showFileIntent = new Intent(this, FileActivity.class);
+                startActivity(showFileIntent);
                 break;
             case R.id.moveExternal:
                 Log.d("Main", "moveExternal");
@@ -63,7 +69,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 Log.d("Main", "no existe el botón");
         }
+    }
 
+    private void saveDataToFile() {
+        String text = editText.getText().toString();
+        try {
+            OutputStreamWriter fout = new OutputStreamWriter(openFileOutput("practica_ficheros.txt", Context.MODE_APPEND));
+            fout.append(text + "\n");
+            fout.close();
+            Toast.makeText(this, "Texto guardado con éxito", Toast.LENGTH_LONG).show();
+            editText.setText("");
+        }
+        catch (Exception ex) {
+            Log.e("Files", String.format("Error: %s", ex.getMessage()));
+        }
 
     }
 }

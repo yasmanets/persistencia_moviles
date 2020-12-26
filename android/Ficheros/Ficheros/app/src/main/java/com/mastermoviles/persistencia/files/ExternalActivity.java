@@ -25,9 +25,7 @@ public class ExternalActivity extends AppCompatActivity {
         if (isExternalStorageReadable()) {
             this.setTextViewContent();
         }
-        goBack.setOnClickListener(view -> {
-            finish();
-        });
+        goBack.setOnClickListener(view -> { finish(); });
 
 
     }
