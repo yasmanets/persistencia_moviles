@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sqlite">
+        <activity android:name=".UserManagement.UserActivity"></activity>
         <activity android:name=".UserManagement.ListActivity" />
         <activity android:name=".UserManagement.UpdateActivity" />
         <activity android:name=".UserManagement.AddActivity" />

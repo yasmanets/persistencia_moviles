@@ -6,7 +6,6 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
 import com.mastermoviles.persistencia.sqlite.Models.Users
 
 class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, VERSION) {
@@ -44,12 +43,27 @@ class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
 
         val success = db.insert(USERS_TABLE, null, contentValues)
         db.close()
-        Log.d("Main", "" + success)
         return success
     }
 
     fun getUser(userId: Int): Users? {
         val select = "SELECT * FROM $USERS_TABLE WHERE id=$userId"
+        val db = this.readableDatabase
+        db.rawQuery(select, null).use {
+            if (it.moveToFirst()) {
+                val id = it.getInt(it.getColumnIndex("ID"))
+                val userName = it.getString(it.getColumnIndex("nombre_usuario"))
+                val password = it.getString(it.getColumnIndex("password"))
+                val fullName = it.getString(it.getColumnIndex("nombre_completo"))
+                val email = it.getString(it.getColumnIndex("email"))
+                return  Users(id = id, nombre_usuario = userName, password = password, nombre_completo = fullName, email = email)
+            }
+            return null
+        }
+    }
+
+    fun login(userName: String): Users? {
+        val select = "SELECT * FROM $USERS_TABLE WHERE nombre_usuario='$userName'"
         val db = this.readableDatabase
         db.rawQuery(select, null).use {
             if (it.moveToFirst()) {
