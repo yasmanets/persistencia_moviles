@@ -100,9 +100,6 @@ class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
     fun updateUser(user: Users): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        Log.d("Main", "" + user)
-        Log.d("Main", "" + user.nombre_completo)
-        Log.d("Main", "" + user.id)
         contentValues.put("nombre_usuario", user.nombre_usuario)
         contentValues.put("nombre_completo", user.nombre_completo)
         contentValues.put("password", user.password)
@@ -110,7 +107,6 @@ class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
 
         val success = db.update(USERS_TABLE, contentValues,"id=${user.id}", null)
         db.close()
-        Log.d("Main", "" + success)
         return success
     }
 

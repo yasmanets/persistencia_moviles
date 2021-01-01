@@ -77,7 +77,10 @@ class ManagementActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.deleteUser -> this.removalDialog()
-            R.id.listUsers -> Toast.makeText(this, "listar", Toast.LENGTH_SHORT).show()
+            R.id.listUsers -> {
+                intent = Intent(this, ListActivity::class.java)
+                startActivity(intent)
+            }
             R.id.back -> finish()
             else -> Toast.makeText(this, "No existe la opción seleccionada", Toast.LENGTH_SHORT).show()
         }
