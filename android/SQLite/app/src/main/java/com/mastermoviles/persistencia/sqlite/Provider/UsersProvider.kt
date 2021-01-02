@@ -29,17 +29,13 @@ class UsersProvider: ContentProvider() {
     }
 
     override fun query(uri: Uri, projection: Array<out String>?, selection: String?, selectionArgs: Array<out String>?, sortOrder: String?): Cursor? {
-        val queryBuilder = SQLiteQueryBuilder()
-        queryBuilder.tables = UsersContract.UsersEntry.TABLE_NAME
         val uriType = uriMatcher.match(uri)
-
-        when (uriType) {
-            USERS_ID -> queryBuilder.appendWhere(UsersContract.UsersEntry.COLUMN_ID + "=" + uri.lastPathSegment)
-            USERS -> {}
-            else -> throw IllegalArgumentException("Unknown URI: $uri")
+        val db = database!!.readableDatabase
+        var where = selection
+        if (uriType == USERS_ID) {
+            where = "id=" + uri.lastPathSegment
         }
-
-        val cursor = queryBuilder.query(database?.readableDatabase, projection, selection, selectionArgs, null, null, sortOrder)
+        val cursor = db.query(UsersContract.UsersEntry.TABLE_NAME, projection, where, selectionArgs, null, null, sortOrder)
         cursor.setNotificationUri(context!!.contentResolver, uri)
         return cursor
     }

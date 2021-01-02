@@ -5,8 +5,8 @@ import android.net.Uri
 import android.provider.BaseColumns
 
 object UsersContract {
-    const val AUTHORITY = "com.mastermoviles.persistencia.sqlite.provider"
-    val BASE_URI = Uri.parse("content:://$AUTHORITY")
+    const val AUTHORITY = "com.mastermoviles.persistencia.sqlite.Provider.UsersProvider"
+    val BASE_URI = Uri.parse("content://$AUTHORITY")
     const val PATH_USERS = "users"
 
     object UsersEntry: BaseColumns {

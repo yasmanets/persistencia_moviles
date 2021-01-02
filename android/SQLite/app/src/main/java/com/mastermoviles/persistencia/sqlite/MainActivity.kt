@@ -52,11 +52,7 @@ class MainActivity : AppCompatActivity() {
         val name = userName?.text.toString()
         val pass = password?.text.toString()
         if (name.isEmpty() || pass.isEmpty()) {
-            Toast.makeText(
-                this,
-                "Debes introducir el nombre de usuario y la contraseña",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this,"Debes introducir el nombre de usuario y la contraseña", Toast.LENGTH_SHORT).show()
             return false
         }
         val user: Users? = database.login(name)

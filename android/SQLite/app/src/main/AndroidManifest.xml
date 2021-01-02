@@ -3,6 +3,7 @@
     package="com.mastermoviles.persistencia.sqlite">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <permission android:name="com.mastermoviles.READ_DATABASE" android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -26,12 +27,14 @@
 
         <provider
             android:authorities="com.mastermoviles.persistencia.sqlite.Provider.UsersProvider"
-            android:name=".Provider.UsersProvider"
-            android:readPermission="com.mastermoviles.PERMISSION"
+            android:name="com.mastermoviles.persistencia.sqlite.Provider.UsersProvider"
+            android:readPermission="com.mastermoviles.READ_DATABASE"
             android:grantUriPermissions="true"
             android:enabled="true"
             android:exported="true"
             android:multiprocess="true" />
     </application>
+
+
 
 </manifest>
