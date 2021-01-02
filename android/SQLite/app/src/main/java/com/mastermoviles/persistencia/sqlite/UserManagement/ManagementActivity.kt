@@ -71,13 +71,27 @@ class ManagementActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.updateUser -> {
+                if (usersList.isEmpty()) {
+                    Toast.makeText(this, "Debes crear al menos un usuario, actualmente no hay usuarios registrado", Toast.LENGTH_SHORT).show()
+                    return
+                }
                 val user = usersList[spinner?.selectedItemPosition!!]
                 intent = Intent(this, UpdateActivity::class.java)
                 intent.putExtra("userId", user.id)
                 startActivity(intent)
             }
-            R.id.deleteUser -> this.removalDialog()
+            R.id.deleteUser -> {
+                if (usersList.isEmpty()) {
+                    Toast.makeText(this, "Debes crear al menos un usuario, actualmente no hay usuarios registrado", Toast.LENGTH_SHORT).show()
+                    return
+                }
+                this.removalDialog()
+            }
             R.id.listUsers -> {
+                if (usersList.isEmpty()) {
+                    Toast.makeText(this, "Debes crear al menos un usuario, actualmente no hay usuarios registrado", Toast.LENGTH_SHORT).show()
+                    return
+                }
                 intent = Intent(this, ListActivity::class.java)
                 startActivity(intent)
             }
