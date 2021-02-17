@@ -1,9 +1,13 @@
 package com.mastermoviles.persistencia.files;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -30,12 +34,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button moveInternal;
     private Button finishApp;
 
+    private final static int REQUEST_PERMISSIONS_CODE = 1;
+    private static final String[] PERMISSIONS = new String[] {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         this.setUIContent();
+        this.checkPermissions();
     }
 
     private void setUIContent() {
@@ -85,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void saveDataToFile() {
         String text = editText.getText().toString();
+        Log.d("Main", "" + this.getFilesDir());
         try {
             OutputStreamWriter fout = new OutputStreamWriter(openFileOutput("practica_ficheros.txt", Context.MODE_APPEND));
             fout.append(text + "\n");
@@ -108,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             File file = new File(path, "practica_ficheros.txt");
             try {
+                Log.d("Main", "path: " + path + " file: " + file);
                 path.mkdirs();
                 InputStream inputStream = openFileInput("practica_ficheros.txt");
                 OutputStream outputStream = new FileOutputStream(file);
@@ -169,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean checkSDCardStatus() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            Log.d("Main", "media mounted");
             return true;
         }
         else if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
@@ -176,6 +190,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else {
             return false;
+        }
+    }
+
+    private boolean checkPermissions() {
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        else {
+            requestPermissions(PERMISSIONS, REQUEST_PERMISSIONS_CODE);
+        }
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_PERMISSIONS_CODE) {
+            for(int i = 0; i < grantResults.length; i++) {
+                if(grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                    finish();
+                    break;
+                }
+            }
+            return;
+        }
+        else {
+            finish();
         }
     }
 }
