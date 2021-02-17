@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void saveDataToFile() {
         String text = editText.getText().toString();
-        Log.d("Main", "" + this.getFilesDir());
         try {
             OutputStreamWriter fout = new OutputStreamWriter(openFileOutput("practica_ficheros.txt", Context.MODE_APPEND));
             fout.append(text + "\n");
@@ -120,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             File file = new File(path, "practica_ficheros.txt");
             try {
-                Log.d("Main", "path: " + path + " file: " + file);
                 path.mkdirs();
                 InputStream inputStream = openFileInput("practica_ficheros.txt");
                 OutputStream outputStream = new FileOutputStream(file);
@@ -182,7 +180,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean checkSDCardStatus() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            Log.d("Main", "media mounted");
             return true;
         }
         else if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
